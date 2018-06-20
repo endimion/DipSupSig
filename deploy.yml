@@ -1,0 +1,17 @@
+version: '2'
+services:
+    sigingApp:
+        container_name: sigService
+        image: endimion13/di-sup-sig:0.0.1
+        ports:
+            - 8091:8090
+        environment:
+            - EIDAS_PROPERTIES=CurrentFamilyName,CurrentGivenName,DateOfBirth,PersonIdentifier
+            - SignerName=University of the Aegean
+            - PASSWORD=password
+            - KEYSTORE_PATH=testSources/keystore.pkcs12
+            - CERTIFICATE_PATH=testSources/server.crt
+#        volumes:
+#            - /configEidas:/configEidas
+#            - /webappConfig:/webappConfig
+#            - /zipcodesCertificates:/certificates
